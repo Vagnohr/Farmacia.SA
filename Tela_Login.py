@@ -1,7 +1,7 @@
 #Login de usuarios e de adms
 from tkinter import *
 from tkinter import ttk 
-
+from tkinter import Database
 #cria a janela
 jan = Tk()
 jan.title("Login de Usuarios")
@@ -24,6 +24,14 @@ senhaEntry.place(x=60, y=125)#posiciona o campo de entrada
 LoginButton = ttk.Button(text="Login")
 LoginButton.place(x=5,y=150)
 
+#função de login
+def Login():
+    usuario = usuarioEntry.get()
+    senha = senhaEntry.get()
 
+#conectar ao banco de dado
+    db = Database()
+    db.cursor.execute("""SELECT * FROM usuario1 WHERE usuario = %s""",(usuario, senha))
+    VerifiyLogin = db.cursor.fetchone()
 
 jan.mainloop()
