@@ -39,8 +39,6 @@ def Login():
 
 
 if LoginButton2 == True:
-    
-#adicionar campos de usuario e senha
     usuarioLabel2 = Label(text="Usuario: ",font=("Century Gothic",10),bg="ORANGE",fg="White")#cria um albel para o usuario
     usuarioLabel2.place(x=5, y=100)#posiciona o label no frame direito
     usuarioEntry2 = ttk.Entry(width=30)#cria um campo de entrada para o usuario
@@ -51,12 +49,10 @@ if LoginButton2 == True:
     senhaEntry2 = ttk.Entry(width=30, show=".")#cria um campo de entrada para a senha
     senhaEntry2.place(x=60, y=125)#posiciona o campo de entrada
 
-#função de login
     def Login():
         usuario = usuarioEntry.get()
         senha = senhaEntry.get()
 
-#conectar ao banco de dado
         db = Database()
         db.cursor.execute("""SELECT * FROM usuario1 WHERE usuario = %s""",(usuario, senha))
 
