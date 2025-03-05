@@ -23,4 +23,7 @@ senhaEntry.place(x=60, y=125)#posiciona o campo de entrada
 #criando botões
 LoginButton = ttk.Button(text="Login")
 LoginButton.place(x=5,y=150)
+
+
+
 jan.mainloop()
