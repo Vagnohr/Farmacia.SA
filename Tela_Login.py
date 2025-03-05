@@ -56,5 +56,4 @@ if LoginButton2 == True:
         db = Database()
         db.cursor.execute("""SELECT * FROM usuario1 WHERE usuario = %s""",(usuario, senha))
 
-
 jan.mainloop()
