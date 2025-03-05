@@ -2,14 +2,14 @@ import mysql.connector
 MYSQL_HOST='localhost'
 MYSQL_USER='root'
 MYSQL_PASSWORD=''
-MYSQL_DATABASE='prdutos'
+MYSQL_DATABASE='produtos'
 def get_connection():
     return mysql.connector.connect(
         host=MYSQL_HOST,
         user=MYSQL_USER,
         password=MYSQL_PASSWORD,
         database=MYSQL_DATABASE)
-def create_product(nome,estoque,valor):
+def add_product(nome,estoque,valor):
     conn=get_connection()
     cursor=conn.cursor()
     query="insert produtos(nome,estoque,valor)VALUES(%s,%i,%s)"
@@ -29,7 +29,7 @@ def read_products():
 def update_product(nome,estoque,valor):
     conn=get_connection()
     cursor=conn.cursor()
-    query="UPDATE produtos SET nome=%s,estoque=%i,valor=%d"
+    query="UPDATE produtos SET nome=%s,estoque=%i,valor=%d WHERE idproduto=%s"
     cursor.execute(query,(nome,estoque,valor))
     conn.commit()
     cursor.close()

@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from crud_stuff_produtos import create_product,read_products,update_product,delete_product
+from crud_stuff_produtos import add_product,read_products,update_product,delete_product
 class CRUDApp:
     def __init__(self,root):
         self.root=root
@@ -23,18 +23,18 @@ class CRUDApp:
         self.valor_entry.grid(row=2,column=1)
         self.idproduto_entry.grid(row=3,column=1)
         #botões do crud
-        tk.Button(self.root,text="Criar produto",command=self.create_product).grid(row=5,column=0,columnspan=1)
+        tk.Button(self.root,text="Criar produto",command=self.add_product).grid(row=5,column=0,columnspan=1)
         tk.Button(self.root,text="Listar produtos",command=self.read_products).grid(row=5,column=1,columnspan=1)
         tk.Button(self.root,text="Alterar produtos",command=self.update_product).grid(row=6,column=0,columnspan=1)
         tk.Button(self.root,text="Excluir produtos",command=self.delete_product).grid(row=6,column=1,columnspan=1)
         self.text_area=tk.Text(self.root,height=10,width=80)
         self.text_area.grid(row=10,column=0,columnspan=4)
-    def create_product(self):
+    def add_product(self):
         nome=self.nome_entry.get()
         telefone=self.estoque_entry.get()
         email=self.valor_entry.get()
         if nome and telefone and email:
-            create_product(nome,telefone,email)
+            add_product(nome,estoque,valor)
             self.nome_entry.delete(0,tk.END)
             self.estoque_entry.delete(0,tk.END)
             self.valor_entry.delete(0,tk.END)
@@ -61,9 +61,9 @@ class CRUDApp:
         else:
             messagebox.showerror("Error","Todos os campos são obrigatórios")
     def delete_product(self):
-        user_id=self.idproduto_entry.get()
-        if user_id:
-            delete_product(user_id)
+        product_id=self.idproduto_entry.get()
+        if product_id:
+            delete_product(product_id)
             self.idproduto_entry.delete(0,tk.END)
             messagebox.showinfo("Success","Produto excluido com sucesso")
         else:
