@@ -22,3 +22,8 @@ class Database:
         self.conn.commit()
 
     print("Conectando ao Banco de Dados")
+    
+#Método para buscar os Dados de um usuario no Banco de Dados
+    def buscar(self,idusuario):
+        self.cursor.execute("SELECT * FROM usuario1 WHERE idusuario=%s",(idusuario))
+        self.conn.commit()
