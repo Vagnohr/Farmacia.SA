@@ -4,7 +4,7 @@ from crud_stuff_produtos import add_product,read_products,update_product,delete_
 class CRUDApp:
     def __init__(self,root):
         self.root=root
-        self.root.title("CRUD PRODUTOS")
+        self.root.title("PRODUTOS")
         #criação de widgets
         self.create_widgets()
     def create_widgets(self):
@@ -23,7 +23,7 @@ class CRUDApp:
         self.valor_entry.grid(row=2,column=1)
         self.idproduto_entry.grid(row=3,column=1)
         #botões do crud
-        tk.Button(self.root,text="Criar produto",command=self.add_product).grid(row=5,column=0,columnspan=1)
+        tk.Button(self.root,text="Adicionar produto",command=self.add_product).grid(row=5,column=0,columnspan=1)
         tk.Button(self.root,text="Listar produtos",command=self.read_products).grid(row=5,column=1,columnspan=1)
         tk.Button(self.root,text="Alterar produtos",command=self.update_product).grid(row=6,column=0,columnspan=1)
         tk.Button(self.root,text="Excluir produtos",command=self.delete_product).grid(row=6,column=1,columnspan=1)
@@ -31,21 +31,21 @@ class CRUDApp:
         self.text_area.grid(row=10,column=0,columnspan=4)
     def add_product(self):
         nome=self.nome_entry.get()
-        telefone=self.estoque_entry.get()
-        email=self.valor_entry.get()
-        if nome and telefone and email:
+        estoque=self.estoque_entry.get()
+        valor=self.valor_entry.get()
+        if nome and estoque and valor:
             add_product(nome,estoque,valor)
             self.nome_entry.delete(0,tk.END)
             self.estoque_entry.delete(0,tk.END)
             self.valor_entry.delete(0,tk.END)
-            messagebox.showinfo("Successo","Produto criado com sucesso")
+            messagebox.showinfo("Successo","Produto adicionado com sucesso")
         else:
             messagebox.showerror("Error","Todos os campos são obrigatórios")
     def read_products(self):
         products=read_products()
         self.text_area.delete(1.0,tk.END)
         for product in products:
-            self.text_area.insert(tk.END,f"id: {product[0]}, nome: {product[1]}, telefone: {product[2]}, email: {product[3]}\n")
+            self.text_area.insert(tk.END,f"id: {product[0]}, nome: {product[1]}, estoque: {product[2]}, valor: {product[3]}\n")
     def update_product(self):
         idproduto=self.idproduto_entry.get()
         nome=self.nome_entry.get()
