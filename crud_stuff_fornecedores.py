@@ -29,7 +29,7 @@ def read_suppliers():
 def update_supplier(nome,produto_fornecido,quantia_mensal):
     conn=get_connection()
     cursor=conn.cursor()
-    query="UPDATE produtos SET nome=%s,estoque=%s,valor=%i WHERE idfornecedor=%s"
+    query="UPDATE produtos SET nome=%s,produto_fornecido=%s,quantia_mensal=%i WHERE idfornecedor=%s"
     cursor.execute(query,(nome,produto_fornecido,quantia_mensal))
     conn.commit()
     cursor.close()
