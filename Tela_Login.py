@@ -39,10 +39,10 @@ def Login():
 
 
 if LoginButton2 == True:
-    usuarioLabel2 = Label(text="Usuario: ",font=("Century Gothic",10),bg="ORANGE",fg="White")#cria um albel para o usuario
-    usuarioLabel2.place(x=5, y=100)#posiciona o label no frame direito
-    usuarioEntry2 = ttk.Entry(width=30)#cria um campo de entrada para o usuario
-    usuarioEntry2.place(x=65, y=100)#posiciona o campo de entrada
+    admLabel = Label(text="Usuario: ",font=("Century Gothic",10),bg="ORANGE",fg="White")#cria um albel para o usuario
+    admLabel.place(x=5, y=100)#posiciona o label no frame direito
+    admEntry = ttk.Entry(width=30)#cria um campo de entrada para o usuario
+    admEntry.place(x=65, y=100)#posiciona o campo de entrada
 
     senhaLabel2 = Label(text="Senha: ",font=("Century Gothic",10),bg="ORANGE",fg="White")#cria um albel para a senha
     senhaLabel2.place(x=5, y=125)#posiciona o label no frame direito
@@ -50,10 +50,10 @@ if LoginButton2 == True:
     senhaEntry2.place(x=60, y=125)#posiciona o campo de entrada
 
     def Login():
-        usuario = usuarioEntry.get()
-        senha = senhaEntry.get()
+        adm = admEntry.get()
+        senha = senhaEntry2.get()
 
         db = Database()
-        db.cursor.execute("""SELECT * FROM usuario1 WHERE usuario = %s""",(usuario, senha))
+        db.cursor.execute("""SELECT * FROM usuario1 WHERE usuario = %s""",(adm, senha))
 
 jan.mainloop()
