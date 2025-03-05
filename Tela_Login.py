@@ -1,7 +1,7 @@
 #Login de usuarios e de adms
 from tkinter import *
 from tkinter import ttk 
-from tkinter import Database
+from Database import Database
 #cria a janela
 jan = Tk()
 jan.title("Login de Usuarios")
