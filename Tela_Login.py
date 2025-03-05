@@ -2,12 +2,9 @@
 from tkinter import *
 from tkinter import ttk 
 
-
-
-
 #cria a janela
 jan = Tk()
-jan.title("SL Sytens - Painel de Acesso")
+jan.title("Login de Usuarios")
 jan.geometry("600x300")
 jan.configure(background="purple")
 jan.resizable(width=False,height=False)
