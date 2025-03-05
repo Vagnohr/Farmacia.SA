@@ -40,7 +40,7 @@ def Login():
 
 if LoginButton2 == True:
     admLabel = Label(text="Usuario: ",font=("Century Gothic",10),bg="ORANGE",fg="White")#cria um albel para o usuario
-    admLabel.place(x=100, y=100)#posiciona o label no frame direito
+    admLabel.place(x=5, y=100)#posiciona o label no frame direito
     admEntry = ttk.Entry(width=30)#cria um campo de entrada para o usuario
     admEntry.place(x=65, y=100)#posiciona o campo de entrada
 
