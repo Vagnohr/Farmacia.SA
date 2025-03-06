@@ -12,6 +12,7 @@ jan.resizable(width=False,height=False)
 
 Titulo = Label(text="Login:",font=("Century Gothic",25),bg="red",fg="White")
 Titulo.place(x=1, y=50)
+
 #adicionar campos de usuario e senha
 nomeLabel = Label(text="Nome: ",font=("Century Gothic",10),bg="ORANGE",fg="White")#cria um albel para o usuario
 nomeLabel.place(x=1, y=100)#posiciona o label no frame direito
@@ -34,7 +35,7 @@ senhaEntry = ttk.Entry(width=30, show=".")#cria um campo de entrada para a senha
 senhaEntry.place(x=55, y=175)#posiciona o campo de entrada
 
 #criando botões
-LoginButton1 = ttk.Button(text="Login:usuario")
+LoginButton1 = ttk.Button(text="Login")
 LoginButton1.place(x=1,y=200)
 
 #função de login
