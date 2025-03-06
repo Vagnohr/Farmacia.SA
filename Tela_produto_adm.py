@@ -10,7 +10,7 @@ class CRUDApp:
     def create_widgets(self):
         #Labels
         tk.Label(self.root,text="Nome:").grid(row=0,column=0)
-        tk.Label(self.root,text="Estoque:").grid(row=1,column=0)
+        tk.Label(self.root,text="Quantidade:").grid(row=1,column=0)
         tk.Label(self.root,text="Valor:").grid(row=2,column=0)
         tk.Label(self.root,text="Descrição:").grid(row=3,column=0)
         tk.Label(self.root,text="Validade:").grid(row=4,column=0)
