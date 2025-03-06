@@ -76,8 +76,10 @@ CREATE TABLE `funcionario` (
 CREATE TABLE `produto` (
   `idproduto` int(11) NOT NULL,
   `produto` text DEFAULT NULL,
+  `Valor` Text DEFAULT NULL,
   `Fornecedor` text DEFAULT NULL,
-  `código` int(11) DEFAULT NULL,
+  `Descrição` text DEFAULT NULL,
+  `Validade` text DEFAULT NULL,
   `quantidade` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
