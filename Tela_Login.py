@@ -2,7 +2,7 @@
 from tkinter import *
 from tkinter import ttk 
 from Database import Database
-
+from tkinter import messagebox #importa o modulo de caixas de mensagem do tkinter
 #cria a janela
 jan = Tk()
 jan.title("Login de Usuarios")
@@ -24,17 +24,24 @@ senhaLabel.place(x=1, y=155)#posiciona o label no frame direito
 senhaEntry = ttk.Entry(width=30, show=".")#cria um campo de entrada para a senha
 senhaEntry.place(x=55, y=155)#posiciona o campo de entrada
 
-#criando botões
-LoginButton1 = ttk.Button(text="Login")
-LoginButton1.place(x=1,y=180)
 
 #função de login
 def Login():
-    usuario = usuarioEntry.get()  
-    senha = senhaEntry.get()
-
+        usuario = usuarioEntry.get()  
+        senha = senhaEntry.get()
 #conectar ao banco de dado
-    db = Database()
-    db.cursor.execute("""SELECT * FROM usuario2 WHERE usuario = %s""",(usuario, senha))
+        db = Database()
+        db.cursor.execute("""SELECT * FROM usuario2 WHERE usuario = %s""",(usuario, senha))
+        VerifiyLogin = db.cursor.fetchone()
+    
+#ferificar se o usuario foi encontrado
+        if VerifiyLogin:
+            messagebox.showinfo(title="Info Login", Message ="Acesso Confirmado. Bem Vindo!")
+        else:
+            messagebox.showinfo(title="Info Login", Message="Acesso Negado, Verifique se o cadastro esta no sistema")
+
+#criando botões
+LoginButton = ttk.Button(text="Login",width=15, command=Login)
+LoginButton.place(x=1,y=180)
 
 jan.mainloop()
