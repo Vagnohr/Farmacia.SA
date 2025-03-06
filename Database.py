@@ -13,20 +13,14 @@ class Database:
         self.cursor = self.conn.cursor()
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS 
         usuario1(                    
-            idusuario INT AUTO_INCREMENT PRIMARY KEY                                          
+            idadm INT AUTO_INCREMENT PRIMARY KEY               
+            nome TEXT (255),               
+            email TEXT (255),               
             usuario TEXT (255),  
-            senha TEXT (255)                         
+            senha TEXT (255)                           
         );''')
         self.conn.commit()
 
-        self.cursor = self.conn.cursor()
-        self.cursor.execute('''CREATE TABLE IF NOT EXISTS 
-        usuario2(                    
-            idadm INT AUTO_INCREMENT PRIMARY KEY                                          
-            adm TEXT (255),  
-            senha TEXT (255)                         
-        );''')
-        self.conn.commit()
     print("Conectando ao Banco de Dados")
     
 #Método para buscar os Dados de um usuario no Banco de Dados
