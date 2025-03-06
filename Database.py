@@ -13,9 +13,7 @@ class Database:
         self.cursor = self.conn.cursor()
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS 
         usuario1(                    
-            idusuario INT AUTO_INCREMENT PRIMARY KEY               
-            nome TEXT (255),               
-            email TEXT (255),               
+            idusuario INT AUTO_INCREMENT PRIMARY KEY                                          
             usuario TEXT (255),  
             senha TEXT (255)                           
         );''')
