@@ -14,7 +14,6 @@ Titulo = Label(text="Login:",font=("Century Gothic",25),bg="red",fg="White")
 Titulo.place(x=1, y=50)
 
 #adicionar campos de usuario e senha
-
 usuarioLabel = Label(text="Usuario: ",font=("Century Gothic",10),bg="ORANGE",fg="White")#cria um albel para o usuario
 usuarioLabel.place(x=1, y=125)#posiciona o label no frame direito
 usuarioEntry = ttk.Entry(width=30)#cria um campo de entrada para o usuario
