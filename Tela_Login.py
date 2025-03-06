@@ -21,13 +21,13 @@ usuarioEntry = ttk.Entry(width=30)#cria um campo de entrada para o usuario
 usuarioEntry.place(x=60, y=125)#posiciona o campo de entrada
 
 senhaLabel = Label(text="senha: ",font=("Century Gothic",10),bg="ORANGE",fg="White")
-senhaLabel.place(x=1, y=175)#posiciona o label no frame direito
+senhaLabel.place(x=1, y=155)#posiciona o label no frame direito
 senhaEntry = ttk.Entry(width=30, show=".")#cria um campo de entrada para a senha
-senhaEntry.place(x=55, y=175)#posiciona o campo de entrada
+senhaEntry.place(x=55, y=155)#posiciona o campo de entrada
 
 #criando botões
 LoginButton1 = ttk.Button(text="Login")
-LoginButton1.place(x=1,y=200)
+LoginButton1.place(x=1,y=180)
 
 #função de login
 def Login():
