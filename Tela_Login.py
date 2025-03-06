@@ -35,7 +35,7 @@ def Login():
 
 #conectar ao banco de dado
     db = Database()
-    db.cursor.execute("""SELECT * FROM usuario1 WHERE usuario = %s""",(usuario, senha))
+    db.cursor.execute("""SELECT * FROM usuario2 WHERE usuario = %s""",(usuario, senha))
 
 
 if LoginButton2 == True:
