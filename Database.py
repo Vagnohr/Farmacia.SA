@@ -14,9 +14,9 @@ class Database:
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS 
         usuario1(                    
             idadm INT AUTO_INCREMENT PRIMARY KEY               
-            nome TEXT (255),               
-            email TEXT (255),               
-            usuario TEXT (255),  
+            nome TEXT (255),                          
+            usuario TEXT (255),
+            email TEXT (255),                  
             senha TEXT (255)                           
         );''')
         self.conn.commit()

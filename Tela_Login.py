@@ -39,7 +39,9 @@ LoginButton1.place(x=1,y=200)
 
 #função de login
 def Login():
+    nome = nomeEntry.get()
     usuario = usuarioEntry.get()
+    email = emailEntry.get()   
     senha = senhaEntry.get()
 
 #conectar ao banco de dado
