@@ -9,11 +9,11 @@ def get_connection():
         user=MYSQL_USER,
         password=MYSQL_PASSWORD,
         database=MYSQL_DATABASE)
-def add_supplier(nome,produto_fornecido,quantia_mensal):
+def add_supplier(nome,produto_fornecido,quantia_mensal,usuario):
     conn=get_connection()
     cursor=conn.cursor()
-    query="insert fornecedores(nome,produto_fornecio,quantia_mensal)VALUES(%s,%s,%i)"
-    cursor.execute(query,(nome,produto_fornecido,quantia_mensal))
+    query="insert fornecedores(nome,produto_fornecio,quantia_mensal,usuario)VALUES(%s,%s,%i,%s)"
+    cursor.execute(query,(nome,produto_fornecido,quantia_mensal,usuario))
     conn.commit()
     cursor.close()
     conn.close()

@@ -9,11 +9,11 @@ def get_connection():
         user=MYSQL_USER,
         password=MYSQL_PASSWORD,
         database=MYSQL_DATABASE)
-def add_product(nome,estoque,valor):
+def add_product(nome,estoque,valor,usuario):
     conn=get_connection()
     cursor=conn.cursor()
-    query="insert produtos(nome,estoque,valor)VALUES(%s,%i,%s)"
-    cursor.execute(query,(nome,estoque,valor))
+    query="insert produtos(nome,estoque,valor,usaurio)VALUES(%s,%i,%d,%s)"
+    cursor.execute(query,(nome,estoque,valor,usuario))
     conn.commit()
     cursor.close()
     conn.close()
