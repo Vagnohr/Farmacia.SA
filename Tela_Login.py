@@ -10,30 +10,32 @@ jan.geometry("600x300")
 jan.configure(background="purple")
 jan.resizable(width=False,height=False)
 
+Titulo = Label(text="Login:",font=("Century Gothic",25),bg="red",fg="White")
+Titulo.place(x=1, y=50)
 #adicionar campos de usuario e senha
-nomeLabel = Label(text="Usuario: ",font=("Century Gothic",10),bg="ORANGE",fg="White")#cria um albel para o usuario
-nomeLabel.place(x=5, y=100)#posiciona o label no frame direito
+nomeLabel = Label(text="Nome: ",font=("Century Gothic",10),bg="ORANGE",fg="White")#cria um albel para o usuario
+nomeLabel.place(x=1, y=100)#posiciona o label no frame direito
 nomeEntry = ttk.Entry(width=30)#cria um campo de entrada para o usuario
-nomeEntry.place(x=65, y=100)#posiciona o campo de entrada
+nomeEntry.place(x=55, y=100)#posiciona o campo de entrada
 
 usuarioLabel = Label(text="Usuario: ",font=("Century Gothic",10),bg="ORANGE",fg="White")#cria um albel para o usuario
-usuarioLabel.place(x=, y=)#posiciona o label no frame direito
+usuarioLabel.place(x=1, y=125)#posiciona o label no frame direito
 usuarioEntry = ttk.Entry(width=30)#cria um campo de entrada para o usuario
-usuarioEntry.place(x=, y=)#posiciona o campo de entrada
+usuarioEntry.place(x=60, y=125)#posiciona o campo de entrada
 
-emailLabel = Label(text="Usuario: ",font=("Century Gothic",10),bg="ORANGE",fg="White")#cria um albel para o usuario
-emailLabel.place(x=, y=)#posiciona o label no frame direito
+emailLabel = Label(text="email: ",font=("Century Gothic",10),bg="ORANGE",fg="White")#cria um albel para o usuario
+emailLabel.place(x=1, y=150)#posiciona o label no frame direito
 emailEntry = ttk.Entry(width=30)#cria um campo de entrada para o usuario
-emailEntry.place(x=, y=)#posiciona o campo de entrada
+emailEntry.place(x=50, y=150)#posiciona o campo de entrada
 
-senhaLabel = Label(text="Senha: ",font=("Century Gothic",10),bg="ORANGE",fg="White")#cria um albel para a senha
-senhaLabel.place(x=5, y=125)#posiciona o label no frame direito
+senhaLabel = Label(text="senha: ",font=("Century Gothic",10),bg="ORANGE",fg="White")
+senhaLabel.place(x=1, y=175)#posiciona o label no frame direito
 senhaEntry = ttk.Entry(width=30, show=".")#cria um campo de entrada para a senha
-senhaEntry.place(x=60, y=125)#posiciona o campo de entrada
+senhaEntry.place(x=55, y=175)#posiciona o campo de entrada
 
 #criando botões
 LoginButton1 = ttk.Button(text="Login:usuario")
-LoginButton1.place(x=5,y=150)
+LoginButton1.place(x=1,y=200)
 
 #função de login
 def Login():
