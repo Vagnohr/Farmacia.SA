@@ -2,7 +2,7 @@ import mysql.connector
 MYSQL_HOST='localhost'
 MYSQL_USER='root'
 MYSQL_PASSWORD=''
-MYSQL_DATABASE='fornecedores'
+MYSQL_DATABASE='farmacia_sa'
 def get_connection():
     return mysql.connector.connect(
         host=MYSQL_HOST,

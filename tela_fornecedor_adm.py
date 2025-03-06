@@ -13,7 +13,7 @@ class CRUDApp:
         tk.Label(self.root,text="Produto Fornecido:").grid(row=1,column=0)
         tk.Label(self.root,text="Quantia Mensal:").grid(row=2,column=0)
         tk.Label(self.root,text="Usuario:").grid(row=3,column=0)
-        tk.Label(self.root,text="Id Fornecedor (for update/delete):").grid(row=4,column=0)
+        tk.Label(self.root,text="Id Fornecedor (for update/delete):").grid(row=6,column=0)
         #criar as caixas para digitar os valores
         self.nome_entry=tk.Entry(self.root)
         self.produto_fornecido_entry=tk.Entry(self.root)
@@ -31,7 +31,7 @@ class CRUDApp:
         tk.Button(self.root,text="Alterar fornecedores",command=self.update_supplier).grid(row=7,column=0,columnspan=1)
         tk.Button(self.root,text="Excluir fornecedores",command=self.delete_supplier).grid(row=7,column=1,columnspan=1)
         self.text_area=tk.Text(self.root,height=10,width=80)
-        self.text_area.grid(row=10,column=0,columnspan=4)
+        self.text_area.grid(row=1,column=0,columnspan=4)
     def add_supplier(self):
         nome=self.nome_entry.get()
         produtofornecido=self.produto_fornecido_entry.get()

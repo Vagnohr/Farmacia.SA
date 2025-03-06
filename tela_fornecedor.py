@@ -4,7 +4,7 @@ from crud_stuff_fornecedores import add_supplier,read_suppliers
 class CRUDApp:
     def __init__(self,root):
         self.root=root
-        self.root.title("PRODUTOS")
+        self.root.title("FORNECEDORES")
         #criação de widgets
         self.create_widgets()
     def create_widgets(self):
@@ -18,7 +18,7 @@ class CRUDApp:
         self.nome_entry=tk.Entry(self.root)
         self.estoque_entry=tk.Entry(self.root)
         self.valor_entry=tk.Entry(self.root)
-        self.usuario_entry=tk.Entry(self.root)
+        self.descricao_entry=tk.Entry(self.root)
         self.idproduto_entry=tk.Entry(self.root)
         self.nome_entry.grid(row=0,column=1)
         self.estoque_entry.grid(row=1,column=1)

@@ -43,6 +43,8 @@ class CRUDApp:
         estoque=self.estoque_entry.get()
         valor=self.valor_entry.get()
         usuario=self.usuario_entry.get()
+        descricao=self.descricao_entry.get()
+        validade=self.validade_entry.get()
         if nome and estoque and valor and usuario and descricao and validade:
             add_product(nome,estoque,valor)
             self.nome_entry.delete(0,tk.END)
@@ -58,18 +60,22 @@ class CRUDApp:
         products=read_products()
         self.text_area.delete(1.0,tk.END)
         for product in products:
-            self.text_area.insert(tk.END,f"id: {product[0]}, nome: {product[1]}, estoque: {product[2]}, valor: {product[3]}, usuario: {product[4]}\n")
+            self.text_area.insert(tk.END,f"id: {product[0]}, nome: {product[1]}, estoque: {product[2]}, valor: {product[3]}, descrição: {product[4]}, validade: {product[5]}, usuario: {product[6]}\n")
     def update_product(self):
         idproduto=self.idproduto_entry.get()
         nome=self.nome_entry.get()
         estoque=self.estoque_entry.get()
         valor=self.valor_entry.get()
-        if idproduto and nome and estoque and valor:
+        descricao=self.descricao_entry.get()
+        validade=self.validade_entry.get()
+        if idproduto and nome and estoque and valor and descricao and validade:
             update_product(idproduto,nome,estoque,valor)
             self.nome_entry.delete(0,tk.END)
             self.estoque_entry.delete(0,tk.END)
             self.valor_entry.delete(0,tk.END)
             self.idproduto_entry.delete(0,tk.END)
+            self.descricao_entry.delete(0,tk.END)
+            self.validade_entry.delete(0,tk.END)
             messagebox.showinfo("Successo","Produto alterado com sucesso")
         else:
             messagebox.showerror("Error","Todos os campos são obrigatórios")
