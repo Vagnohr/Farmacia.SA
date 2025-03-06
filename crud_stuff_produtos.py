@@ -2,25 +2,25 @@ import mysql.connector
 MYSQL_HOST='localhost'
 MYSQL_USER='root'
 MYSQL_PASSWORD=''
-MYSQL_DATABASE='produtos'
+MYSQL_DATABASE='farmacia_sa'
 def get_connection():
     return mysql.connector.connect(
         host=MYSQL_HOST,
         user=MYSQL_USER,
         password=MYSQL_PASSWORD,
         database=MYSQL_DATABASE)
-def add_product(nome,estoque,valor,usuario):
+def add_product(nome,estoque,valor,descricao,validade,usuario):
     conn=get_connection()
     cursor=conn.cursor()
-    query="insert produtos(nome,estoque,valor,usaurio)VALUES(%s,%i,%d,%s)"
-    cursor.execute(query,(nome,estoque,valor,usuario))
+    query="insert produto(nome,estoque,valor,descrição,validade,usuario)VALUES(%s,%i,%d,%s,%s,%s,%s)"
+    cursor.execute(query,(nome,estoque,valor,descricao,validade,usuario))
     conn.commit()
     cursor.close()
     conn.close()
 def read_products():
     conn=get_connection()
     cursor=conn.cursor()
-    query="SELECT * FROM produtos"
+    query="SELECT * FROM produto"
     cursor.execute(query) 
     result=cursor.fetchall()
     cursor.close()
@@ -29,7 +29,7 @@ def read_products():
 def update_product(nome,estoque,valor):
     conn=get_connection()
     cursor=conn.cursor()
-    query="UPDATE produtos SET nome=%s,estoque=%i,valor=%d WHERE idproduto=%s"
+    query="UPDATE produto SET nome=%s,estoque=%i,valor=%d,descrição=%s,validade=%s,usuario=%s WHERE idproduto=%s"
     cursor.execute(query,(nome,estoque,valor))
     conn.commit()
     cursor.close()
@@ -37,7 +37,7 @@ def update_product(nome,estoque,valor):
 def delete_product(product_id):
     conn=get_connection()
     cursor=conn.cursor()
-    query="DELETE FROM produtos WHERE idproduto=%s"
+    query="DELETE FROM produto WHERE idproduto=%s"
     cursor.execute(query,(product_id,))
     conn.commit()
     cursor.close()

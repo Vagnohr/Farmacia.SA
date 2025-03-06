@@ -2,7 +2,7 @@ import mysql.connector
 MYSQL_HOST='localhost'
 MYSQL_USER='root'
 MYSQL_PASSWORD=''
-MYSQL_DATABASE='fornecedores'
+MYSQL_DATABASE='farmacia_sa'
 def get_connection():
     return mysql.connector.connect(
         host=MYSQL_HOST,
@@ -12,7 +12,7 @@ def get_connection():
 def add_supplier(nome,produto_fornecido,quantia_mensal,usuario):
     conn=get_connection()
     cursor=conn.cursor()
-    query="insert fornecedores(nome,produto_fornecio,quantia_mensal,usuario)VALUES(%s,%s,%i,%s)"
+    query="insert fornecedor(nome,produto_fornecio,quantia_mensal,usuario)VALUES(%s,%s,%i,%s)"
     cursor.execute(query,(nome,produto_fornecido,quantia_mensal,usuario))
     conn.commit()
     cursor.close()
@@ -20,7 +20,7 @@ def add_supplier(nome,produto_fornecido,quantia_mensal,usuario):
 def read_suppliers():
     conn=get_connection()
     cursor=conn.cursor()
-    query="SELECT * FROM fornecedores"
+    query="SELECT * FROM fornecedor"
     cursor.execute(query) 
     result=cursor.fetchall()
     cursor.close()
@@ -37,7 +37,7 @@ def update_supplier(nome,produto_fornecido,quantia_mensal):
 def delete_supplier(supplier_id):
     conn=get_connection()
     cursor=conn.cursor()
-    query="DELETE FROM fornecedores WHERE idfornecedor=%s"
+    query="DELETE FROM fornecedor WHERE idfornecedor=%s"
     cursor.execute(query,(supplier_id))
     conn.commit()
     cursor.close()
