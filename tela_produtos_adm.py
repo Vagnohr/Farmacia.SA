@@ -12,15 +12,18 @@ class CRUDApp:
         tk.Label(self.root,text="Nome:").grid(row=0,column=0)
         tk.Label(self.root,text="Etoque:").grid(row=1,column=0)
         tk.Label(self.root,text="Valor:").grid(row=2,column=0)
-        tk.Label(self.root,text="Id Produto (for update/delete):").grid(row=3,column=0)
+        tk.Label(self.root,text="Usuario:").grid(row=3,column=0)
+        tk.Label(self.root,text="Id Produto (for update/delete):").grid(row=4,column=0)
         #criar as caixas para digitar os valores
         self.nome_entry=tk.Entry(self.root)
         self.estoque_entry=tk.Entry(self.root)
         self.valor_entry=tk.Entry(self.root)
+        self.usuario_entry=tk.Entry(self.root)
         self.idproduto_entry=tk.Entry(self.root)
         self.nome_entry.grid(row=0,column=1)
         self.estoque_entry.grid(row=1,column=1)
         self.valor_entry.grid(row=2,column=1)
+        self.usuario_entry.grid(row=3,column=1)
         self.idproduto_entry.grid(row=3,column=1)
         #botões do crud
         tk.Button(self.root,text="Adicionar produto",command=self.add_product).grid(row=5,column=0,columnspan=1)
@@ -45,7 +48,7 @@ class CRUDApp:
         products=read_products()
         self.text_area.delete(1.0,tk.END)
         for product in products:
-            self.text_area.insert(tk.END,f"id: {product[0]}, nome: {product[1]}, estoque: {product[2]}, valor: {product[3]}\n")
+            self.text_area.insert(tk.END,f"id: {product[0]}, nome: {product[1]}, estoque: {product[2]}, valor: {product[3]}, usuario: {product[4]}\n")
     def update_product(self):
         idproduto=self.idproduto_entry.get()
         nome=self.nome_entry.get()
