@@ -12,7 +12,7 @@ def get_connection():
 def add_product(nome,estoque,valor,descricao,validade,usuario):
     conn=get_connection()
     cursor=conn.cursor()
-    query="insert produto(nome,estoque,valor,descrição,validade,usuario)VALUES(%s,%i,%s,%s,%s,%s,%s)"
+    query="insert produto(nome,estoque,valor,descricao,validade,usuario)VALUES(%s,%s,%s,%s,%s,%s,%s)"
     cursor.execute(query,(nome,estoque,valor,descricao,validade,usuario))
     conn.commit()
     cursor.close()
@@ -29,8 +29,8 @@ def read_products():
 def update_product(nome,estoque,valor,descricao,validade):
     conn=get_connection()
     cursor=conn.cursor()
-    query="UPDATE produto SET nome=%s,estoque=%i,valor=%s,descrição=%s,validade=%s, WHERE idproduto=%s"
-    cursor.execute(query,(nome,estoque,valor))
+    query="UPDATE produto SET nome=%s,estoque=%s,valor=%s,descrição=%s,validade=%s, WHERE idproduto=%s"
+    cursor.execute(query,(nome,estoque,valor,descricao,validade))
     conn.commit()
     cursor.close()
     conn.close()
