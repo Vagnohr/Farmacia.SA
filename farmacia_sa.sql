@@ -78,9 +78,10 @@ CREATE TABLE `produto` (
   `produto` text DEFAULT NULL,
   `Valor` Text DEFAULT NULL,
   `Fornecedor` text DEFAULT NULL,
-  `Descrição` text DEFAULT NULL,
+  `Descricao` text DEFAULT NULL,
   `Validade` text DEFAULT NULL,
-  `quantidade` int(11) DEFAULT NULL
+  `quantidade` int(11) DEFAULT NULL,
+  `Usuario` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

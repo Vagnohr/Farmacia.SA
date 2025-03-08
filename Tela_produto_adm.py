@@ -40,7 +40,7 @@ class CRUDApp:
         tk.Button(self.root,text="Alterar produtos",command=self.update_product).grid(row=9,column=0,columnspan=1)
         tk.Button(self.root,text="Excluir produtos",command=self.delete_product).grid(row=9,column=1,columnspan=1)
         self.text_area=tk.Text(self.root,height=10,width=80)
-        self.text_area.grid(row=13,column=0,columnspan=4)
+        self.text_area.grid(row=13,column=0,columnspan=10)
     def add_product(self):
         nome=self.nome_entry.get()
         estoque=self.quantidade_entry.get()
