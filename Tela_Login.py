@@ -31,7 +31,7 @@ def Login():
         senha = senhaEntry.get()
 #conectar ao banco de dado
         db = Database()
-        db.cursor.execute("""SELECT * FROM usuario2 WHERE usuario = %s""",(usuario, senha))
+        db.cursor.execute("""SELECT * FROM usuario = %s""",(usuario, senha))
         VerifiyLogin = db.cursor.fetchone()
     
 #ferificar se o usuario foi encontrado
