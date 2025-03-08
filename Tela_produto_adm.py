@@ -72,9 +72,11 @@ class CRUDApp:
         estoque=self.quantidade_entry.get()
         valor=self.valor_entry.get()
         descricao=self.descricao_entry.get()
+        fornecedor=self.fornecedor_entry.get()
+        usuario=self.usuario_entry.get()
         validade=self.validade_entry.get()
-        if idproduto and nome and estoque and valor and descricao and validade:
-            update_product(idproduto,nome,estoque,valor)
+        if idproduto and nome and estoque and valor and descricao and validade and fornecedor and usuario:
+            update_product(nome,estoque,valor,descricao,validade,fornecedor,usuario,idproduto)
             self.nome_entry.delete(0,tk.END)
             self.quantidade_entry.delete(0,tk.END)
             self.valor_entry.delete(0,tk.END)
