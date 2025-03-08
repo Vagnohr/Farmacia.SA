@@ -12,7 +12,7 @@ def get_connection():
 def add_product(nome,estoque,valor,fornecedor,descricao,validade,usuario):
     conn=get_connection()
     cursor=conn.cursor()
-    query="insert produto(nome,estoque,valor,fornecedor,descricao,validade,usuario)VALUES(%s,%s,%s,%s,%s,%s,%s,%s)"
+    query="insert produto(nome,estoque,valor,fornecedor,descricao,validade,usuario)VALUES(%s,%s,%s,%s,%s,%s,%s)"
     cursor.execute(query,(nome,estoque,valor,fornecedor,descricao,validade,usuario))
     conn.commit()
     cursor.close()
