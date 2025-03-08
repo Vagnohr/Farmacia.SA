@@ -42,7 +42,7 @@ class Database:
         conn.commit()
         cursor.close()
         conn.close()
-        
+
     @staticmethod    
     def delete_user(user_id):
         conn=get_connection()
