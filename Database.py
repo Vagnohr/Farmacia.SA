@@ -26,9 +26,3 @@ def create_user(usuario,senha):
     conn.commit()
     cursor.close()
     conn.close()
-
-    
-    
-
-
-    
