@@ -9,11 +9,11 @@ def get_connection():
         user=MYSQL_USER,
         password=MYSQL_PASSWORD,
         database=MYSQL_DATABASE)
-def add_product(nome,estoque,valor,fornecedor,descricao,validade,usuario):
+def add_product(produto,estoque,valor,fornecedor,descricao,validade,usuario):
     conn=get_connection()
     cursor=conn.cursor()
-    query="insert produto(nome,estoque,valor,fornecedor,descricao,validade,usuario)VALUES(%s,%s,%s,%s,%s,%s,%s)"
-    cursor.execute(query,(nome,estoque,valor,fornecedor,descricao,validade,usuario))
+    query="insert produto(produto,estoque,valor,fornecedor,descricao,validade,usuario)VALUES(%s,%s,%s,%s,%s,%s,%s)"
+    cursor.execute(query,(produto,estoque,valor,fornecedor,descricao,validade,usuario))
     conn.commit()
     cursor.close()
     conn.close()
@@ -26,11 +26,11 @@ def read_products():
     cursor.close()
     conn.close()
     return result
-def update_product(nome,estoque,valor,fornecedor,descricao,validade,usuario):
+def update_product(produto,estoque,valor,fornecedor,descricao,validade,usuario):
     conn=get_connection()
     cursor=conn.cursor()
-    query="UPDATE produto SET nome=%s,estoque=%s,valor=%s,fornecedor=%s,descrição=%s,validade=%s,usuario=%s WHERE idproduto=%s"
-    cursor.execute(query,(nome,estoque,valor,fornecedor,descricao,validade,usuario))
+    query="UPDATE produto SET produto=%s,estoque=%s,valor=%s,fornecedor=%s,descrição=%s,validade=%s,usuario=%s WHERE idproduto=%s"
+    cursor.execute(query,(produto,estoque,valor,fornecedor,descricao,validade,usuario))
     conn.commit()
     cursor.close()
     conn.close()

@@ -12,7 +12,7 @@ def get_connection():
 def add_supplier(nome,email,produto_fornecido,quantia_mensal,transporte,cidade,estado,usuario):
     conn=get_connection()
     cursor=conn.cursor()
-    query="insert fornecedor(nome,email,produto_fornecio,quantia_mensal,transporte,cidade,estado,usuario)VALUES(%s,%s,%s,%s,%s,%s,%s)"
+    query="insert fornecedor(fornecedor,email,produto_fornecio,quantia_mensal,transporte,cidade,estado,usuario)VALUES(%s,%s,%s,%s,%s,%s,%s)"
     cursor.execute(query,(nome,email,produto_fornecido,quantia_mensal,transporte,cidade,estado,usuario))
     conn.commit()
     cursor.close()
@@ -29,7 +29,7 @@ def read_suppliers():
 def update_supplier(nome,email,produto_fornecido,quantia_mensal,transporte,cidade,estado,usuario):
     conn=get_connection()
     cursor=conn.cursor()
-    query="UPDATE produtos SET nome=%s,email=%s,produto_fornecido=%s,quantia_mensal=%s,transporte=%s,cidade=%s,estado=%s,usuario=%s WHERE idfornecedor=%s"
+    query="UPDATE produtos SET fornecedor=%s,email=%s,produto_fornecido=%s,quantia_mensal=%s,transporte=%s,cidade=%s,estado=%s,usuario=%s WHERE idfornecedor=%s"
     cursor.execute(query,(nome,email,produto_fornecido,quantia_mensal,transporte,cidade,estado,usuario))
     conn.commit()
     cursor.close()
