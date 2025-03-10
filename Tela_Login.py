@@ -34,7 +34,7 @@ def Login():
         conn = db.get_connection()
         cursor = conn.cursor()
         cursor.execute("""SELECT * FROM usuario2 WHERE usuario = %s AND senha = %s""",(usuario, senha))
-        VerifiyLogin = db.cursor.fetchone()
+        VerifiyLogin = cursor.fetchone()
     
 #ferificar se o usuario foi encontrado
         if VerifiyLogin:
