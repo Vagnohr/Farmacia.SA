@@ -1,60 +1,35 @@
+#Colocar no Banco de Dados
 import mysql.connector
-from Banco import Banco
+def get_connection():
+    return mysql.connector.connect(
+    host="MYSQL_HOST",
+    user="MYSQL_USER",
+    password="MYSQL_PASSWORD",
+    Database="MYSLQ_DATABASE"
+)
+class Database:
+    def __init__(self):
+        self.MYSQL_HOST ="localhost",
+        self.MYSQL_USER ="root", 
+        self.MYSQL_PASSWORD ="",
+        self.MYSLQ_DATABASE ="caiobattisti_db" 
 
-class Usuarios(object):
-    def __init__(self, idusuario=0, nome="", telefone="", email="", usuario="", senha=""):
-        self.info = {}
-        self.idusuario = idusuario
-        self.nome = nome
-        self.telefone = telefone
-        self.email = email
-        self.usuario = usuario
-        self.senha = senha
+    def get_connection(self):
+        return mysql.connector.connect(
+            host=self.MYSQL_HOST,
+            user=self.MYSQL_USER,
+            password=self.MYSQL_PASSWORD,
+            Database=self.MYSLQ_DATABASE
+)
+db = Database()
 
-    def insertUser(self):
-        banco = Banco()
-        try:
-            c = banco.conexao.cursor()
-            c.execute("INSERT INTO usuario (nome, telefone, email, usuario, senha) VALUES (%s, %s, %s, %s, %s)",
-                      (self.nome, self.telefone, self.email, self.usuario, self.senha))
-            banco.conexao.commit()
-            c.close()
-            return "Usuário cadastrado com sucesso!"
-        except Exception as e:
-            return f"Ocorreu um erro na inserção do usuário: {e}"
-
-    def updateUser(self):
-        banco = Banco()
-        try:
-            c = banco.conexao.cursor()
-            c.execute("UPDATE usuario SET nome=%s, telefone=%s, email=%s, usuario=%s, senha=%s WHERE idUsuario=%s",
-                      (self.nome, self.telefone, self.email, self.usuario, self.senha, self.idusuario))
-            banco.conexao.commit()
-            c.close()
-            return "Usuário atualizado com sucesso!"
-        except Exception as e:
-            return f"Ocorreu um erro na alteração do usuário: {e}"
-
-    def deleteUser(self):
-        banco = Banco()
-        try:
-            c = banco.conexao.cursor()
-            c.execute("DELETE FROM usuario WHERE idUsuario=%s", (self.idusuario,))
-            banco.conexao.commit()
-            c.close()
-            return "Usuário excluído com sucesso!"
-        except Exception as e:
-            return f"Ocorreu um erro na exclusão do usuário: {e}"
-
-    def selectUser(self, idusuario):
-        banco = Banco()
-        try:
-            c = banco.conexao.cursor()
-            c.execute("SELECT * FROM usuario WHERE idUsuario=%s", (idusuario,))
-            usuario = c.fetchone()
-            if usuario:
-                self.idusuario, self.nome, self.telefone, self.email, self.usuario, self.senha = usuario
-            c.close()
-            return "Busca feita com sucesso!"
-        except Exception as e:
-            return f"Ocorreu um erro na busca do usuário: {e}"
+def get_connection():
+    return db.get_connection()
+def create_user(usuario,senha):
+    conn=get_connection()
+    cursor=conn.cursor()
+    query="insert usuario(usuario,senha)VALUES(%s,%s)"
+    cursor.execute(query,(usuario,senha))
+    conn.commit()
+    cursor.close()
+    conn.close()
