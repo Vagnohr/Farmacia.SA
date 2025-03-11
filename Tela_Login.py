@@ -50,8 +50,4 @@ LoginButton.place(x=1,y=180)
 #tela de cadastro
 
 
-
-
-
-
 jan.mainloop()
