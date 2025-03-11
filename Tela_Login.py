@@ -42,7 +42,7 @@ class Application:
         self.container9["pady"] = 15
         self.container9.pack()
 
-        self.titulo = Label(self.container1, text="Login:")
+        self.titulo = Label(self.container1, text="Informe os dados :")
         self.titulo["font"] = ("Calibri", "9", "bold")
         self.titulo.pack ()
 
@@ -97,7 +97,7 @@ class Application:
         self.txtsenha["show"] = "*"
         self.txtsenha["font"] = self.fonte
         self.txtsenha.pack(side=LEFT)
-        self.bntInsert = Button(self.container8, text="Login",font=self.fonte, width=12)
+        self.bntInsert = Button(self.container8, text="Inserir",font=self.fonte, width=12)
         self.bntInsert["command"] = self.inserirUsuario
         self.bntInsert.pack (side=LEFT)
         self.bntAlterar = Button(self.container8, text="Alterar",font=self.fonte, width=12)
@@ -109,7 +109,7 @@ class Application:
         self.bntExcluir.pack (side=LEFT)
 
         self.lblmsg = Label(self.container9, text="")
-        self.lblmsg["font"] = ("Verdana", "9", "negrit")
+        self.lblmsg["font"] = ("Verdana", "9", "italic")
         self.lblmsg.pack()
 
         self.conectarBanco()
@@ -119,7 +119,7 @@ class Application:
             host="localhost",
             user="root",
             password="",
-            database="caiobattisti_db"
+            database="caiobattisti_db" # ESSE É O MEU BANCO, O ALUNO DEVE CRIAR O DELE
         )
         self.cursor = self.conn.cursor()
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS usuario (
@@ -140,7 +140,7 @@ class Application:
         self.cursor.execute("INSERT INTO usuario (nome, telefone, email, usuario, senha) VALUES (%s, %s, %s, %s, %s)",
                             (nome, telefone, email, usuario, senha))
         self.conn.commit()
-        self.lblmsg["text"] = "Cadastrado com sucesso"
+        self.lblmsg["text"] = "Usuário inserido com sucesso"
         self.limparCampos()
 
     def alterarUsuario(self):
@@ -153,14 +153,14 @@ class Application:
         self.cursor.execute("UPDATE usuario SET nome=%s, telefone=%s, email=%s, usuario=%s, senha=%s WHERE idUsuario=%s",
                             (nome, telefone, email, usuario, senha, idUsuario))
         self.conn.commit()
-        self.lblmsg["text"] = "Alterado com sucesso"
+        self.lblmsg["text"] = "Usuário alterado com sucesso"
         self.limparCampos()
 
     def excluirUsuario(self):
         idUsuario = self.txtidusuario.get()
         self.cursor.execute("DELETE FROM usuario WHERE idUsuario=%s", (idUsuario,))
         self.conn.commit()
-        self.lblmsg["text"] = "Excluído com sucesso"
+        self.lblmsg["text"] = "Usuário excluído com sucesso"
         self.limparCampos()
 
     def buscarUsuario(self):
@@ -174,7 +174,7 @@ class Application:
             self.txtusuario.insert(0, usuario[4])
             self.txtsenha.insert(0, usuario[5])
         else:
-            self.lblmsg["text"] = "Login não encontrado"
+            self.lblmsg["text"] = "Usuário não encontrado"
             self.limparCampos()
 
     def limparCampos(self):
