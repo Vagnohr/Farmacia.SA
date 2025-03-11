@@ -3,7 +3,9 @@ from tkinter import *
 from tkinter import ttk 
 from Database import Database
 from tkinter import messagebox #importa o modulo de caixas de mensagem do tkinter
-from tkinter import self
+
+"from tkinter import self"
+
 #cria a janela
 jan = Tk()
 jan.title("Login de Usuarios")
