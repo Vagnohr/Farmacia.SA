@@ -44,7 +44,7 @@ class Application:
         self.container8["padx"] = 20
         self.container8["pady"] = 10
         self.container8.pack()
-
+        
         self.container9 = Frame(master)
         self.container9["pady"] = 15
         self.container9.pack()
