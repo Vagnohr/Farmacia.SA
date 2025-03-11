@@ -4,9 +4,7 @@ from tkinter import ttk
 from Database import Database
 from tkinter import messagebox #importa o modulo de caixas de mensagem do tkinter
 
-"from tkinter import self"
-
-#cria a janela
+#tela de login
 jan = Tk()
 jan.title("Login de Usuarios")
 jan.geometry("600x300")
@@ -49,53 +47,11 @@ def Login():
 LoginButton = ttk.Button(text="Login",width=15, command=Login)
 LoginButton.place(x=1,y=180)
 
-'''#criação de WIDGETS
-self.create_widgets()
-        
-def create_widgets(self):
-        #Labels
-        ttk.Label(self.root,text="Nome: ").grid(row=0,column=0)
-        ttk.Label(self.root,text="telefone: ").grid(row=1,column=0)
-        ttk.Label(self.root,text="Email: ").grid(row=2,column=0)
-        ttk.Label(self.root,text="Usuario: ").grid(row=3,column=0)
-        ttk.Label(self.root,text="senha: ").grid(row=4,column=0)
-        ttk.Label(self.root,text="User ID(for update/delete): ").grid(row=5,column=0)
+#tela de cadastro
 
-        #criar as caixas para digitar os valores
-        self.nome_entry = tk.Entry(self.root)
-        self.telefone_entry = tk.Entry(self.root)
-        self.email_entry = tk.Entry(self.root)
-        self.usuario_entry = tk.Entry(self.root)
-        self.senha_entry = tk.Entry(self.root)
-        self.user_ID_entry = tk.Entry(self.root)
-        
-        self.nome_entry.grid(row=0,column=1)
-        self.telefone_entry.grid(row=1,column=1)
-        self.email_entry.grid(row=2,column=1)
-        self.usuario_entry.grid(row=3,column=1)
-        self.senha_entry.grid(row=4,column=1)
-        self.user_ID_entry.grid(row=5,column=1)
-        #botoes crud
-        ttk.Button(self.root,text="criar Usuario",command=self.create_user).grid(row=6,column=0,columnspan=1)
-        
-        
-        def create_user(self):
-            nome = self.nome_entry.get()
-            telefone = self.telefone_entry.get()
-            email = self.email_entry.get()
-            usuario = self.usuario_entry.get()
-            senha = self.senha_entry.get()
 
-        if nome and telefone and email and usuario and senha:
-            create_user(nome,telefone,email,usuario,senha)
-            self.nome_entry.delete =(0,tk.END)
-            self.telefone_entry.delete =(0,tk.END)
-            self.email_entry.delete =(0,tk.END)
-            self.usuario_entry.delete =(0,tk.END)
-            self.senha_entry.delete =(0,tk.END)
-            messagebox.showinfo("Successo","Usuario criado com Sucesso")
-        else:
-           messagebox.showerror("Error","Todos os campos são obrigatorios!")
-'''
+
+
+
 
 jan.mainloop()
