@@ -119,7 +119,7 @@ class Application:
             host="localhost",
             user="root",
             password="",
-            database="caiobattisti_db" # ESSE É O MEU BANCO, O ALUNO DEVE CRIAR O DELE
+            database="caiobattisti_db"
         )
         self.cursor = self.conn.cursor()
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS usuario (
