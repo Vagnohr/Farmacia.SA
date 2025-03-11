@@ -9,10 +9,10 @@ class Database:
 
     def get_connection(self):
         return mysql.connector.connect(
-        host=self.MYSQL_HOST,
-        user=self.MYSQL_USER,
-        password=self.MYSQL_PASSWORD,
-        Database=self.MYSLQ_DATABASE
+            host=self.MYSQL_HOST,
+            user=self.MYSQL_USER,
+            password=self.MYSQL_PASSWORD,
+            Database=self.MYSLQ_DATABASE
 )
 db = Database()
 
