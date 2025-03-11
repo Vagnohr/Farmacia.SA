@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import ttk 
 from Database import Database
 from tkinter import messagebox #importa o modulo de caixas de mensagem do tkinter
+from tkinter import self
 #cria a janela
 jan = Tk()
 jan.title("Login de Usuarios")
@@ -46,19 +47,17 @@ def Login():
 LoginButton = ttk.Button(text="Login",width=15, command=Login)
 LoginButton.place(x=1,y=180)
 
-jan.mainloop()
-
-''' #criação de WIDGETS
-        self.create_widgets()
+'''#criação de WIDGETS
+self.create_widgets()
         
-    def create_widgets(self):
+def create_widgets(self):
         #Labels
-        tk.Label(self.root,text="Nome: ").grid(row=0,column=0)
-        tk.Label(self.root,text="telefone: ").grid(row=1,column=0)
-        tk.Label(self.root,text="Email: ").grid(row=2,column=0)
-        tk.Label(self.root,text="Usuario: ").grid(row=3,column=0)
-        tk.Label(self.root,text="senha: ").grid(row=4,column=0)
-        tk.Label(self.root,text="User ID(for update/delete): ").grid(row=5,column=0)
+        ttk.Label(self.root,text="Nome: ").grid(row=0,column=0)
+        ttk.Label(self.root,text="telefone: ").grid(row=1,column=0)
+        ttk.Label(self.root,text="Email: ").grid(row=2,column=0)
+        ttk.Label(self.root,text="Usuario: ").grid(row=3,column=0)
+        ttk.Label(self.root,text="senha: ").grid(row=4,column=0)
+        ttk.Label(self.root,text="User ID(for update/delete): ").grid(row=5,column=0)
 
         #criar as caixas para digitar os valores
         self.nome_entry = tk.Entry(self.root)
@@ -75,15 +74,15 @@ jan.mainloop()
         self.senha_entry.grid(row=4,column=1)
         self.user_ID_entry.grid(row=5,column=1)
         #botoes crud
-        tk.Button(self.root,text="criar Usuario",command=self.create_user).grid(row=6,column=0,columnspan=1)
+        ttk.Button(self.root,text="criar Usuario",command=self.create_user).grid(row=6,column=0,columnspan=1)
         
         
         def create_user(self):
             nome = self.nome_entry.get()
-        telefone = self.telefone_entry.get()
-        email = self.email_entry.get()
-        usuario = self.usuario_entry.get()
-        senha = self.senha_entry.get()
+            telefone = self.telefone_entry.get()
+            email = self.email_entry.get()
+            usuario = self.usuario_entry.get()
+            senha = self.senha_entry.get()
 
         if nome and telefone and email and usuario and senha:
             create_user(nome,telefone,email,usuario,senha)
@@ -94,4 +93,7 @@ jan.mainloop()
             self.senha_entry.delete =(0,tk.END)
             messagebox.showinfo("Successo","Usuario criado com Sucesso")
         else:
-           messagebox.showerror("Error","Todos os campos são obrigatorios!") '''
+           messagebox.showerror("Error","Todos os campos são obrigatorios!")
+'''
+
+jan.mainloop()
