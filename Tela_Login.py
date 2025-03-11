@@ -1,7 +1,7 @@
 #Login de usuarios e de adms
 from tkinter import *
 from tkinter import ttk 
-from Database import Database
+from DataBase import Database
 from tkinter import messagebox #importa o modulo de caixas de mensagem do tkinter
 
 #cria a janela
