@@ -1,4 +1,4 @@
-from Usuarios import Usuarios
+from DataBase import Usuarios
 from tkinter import *
 import mysql.connector
 
