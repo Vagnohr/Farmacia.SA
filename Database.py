@@ -29,7 +29,7 @@ def create_user(usuario, senha):
     cursor = conn.cursor()
 
     # Query para inserir um novo usuário
-    query = "INSERT INTO usuario (usuario, senha) VALUES (%s, %s)"
+    query = "INSERT INTO usuario1 (usuario, senha) VALUES (%s, %s)"
     cursor.execute(query, (usuario, senha))
 
     # Confirmando as alterações
