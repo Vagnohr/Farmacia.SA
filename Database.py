@@ -1,14 +1,12 @@
-# Importando o módulo do MySQL Connector
 import mysql.connector
 
-# Classe para gerenciar o banco de dados
 class Database:
     def __init__(self):
         # Configurações do banco de dados
-        self.MYSQL_HOST = "localhost"  # Certifique-se de que é uma string
-        self.MYSQL_USER = "root"  # Usuário do banco de dados
-        self.MYSQL_PASSWORD = ""  # Senha do banco de dados
-        self.MYSQL_DATABASE = "caiobattisti_db"  # Nome do banco de dados
+        self.MYSQL_HOST = "localhost"
+        self.MYSQL_USER = "root"
+        self.MYSQL_PASSWORD = ""
+        self.MYSQL_DATABASE = "caiobattisti_db"
 
     def get_connection(self):
         # Criando uma conexão com o banco de dados
@@ -18,23 +16,13 @@ class Database:
             password=self.MYSQL_PASSWORD,
             database=self.MYSQL_DATABASE
         )
-
-# Instância da classe Database
 db = Database()
-
 # Função para criar um usuário no banco de dados
 def create_user(usuario, senha):
-    # Obtém uma conexão com o banco de dados
     conn = db.get_connection()
     cursor = conn.cursor()
-
-    # Query para inserir um novo usuário
     query = "INSERT INTO usuario1 (usuario, senha) VALUES (%s, %s)"
     cursor.execute(query, (usuario, senha))
-
-    # Confirmando as alterações
     conn.commit()
-
-    # Fechando o cursor e a conexão
     cursor.close()
     conn.close()
