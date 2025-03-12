@@ -36,7 +36,7 @@ def Login():
         cursor = conn.cursor()
 
         # Consulta para verificar as credenciais
-        cursor.execute("""SELECT * FROM usuario1 WHERE usuario = %s AND senha = %s""", (usuario, senha))
+        cursor.execute("""SELECT * FROM usuario WHERE usuario = %s AND senha = %s""", (usuario, senha))
         VerifiyLogin = cursor.fetchone()
 
         # Verificar se o usuário foi encontrado

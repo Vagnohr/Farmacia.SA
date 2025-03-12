@@ -21,7 +21,7 @@ db = Database()
 def create_user(usuario, senha):
     conn = db.get_connection()
     cursor = conn.cursor()
-    query = "INSERT INTO usuario1 (usuario, senha) VALUES (%s, %s)"
+    query = "INSERT INTO usuario (usuario, senha) VALUES (%s, %s)"
     cursor.execute(query, (usuario, senha))
     conn.commit()
     cursor.close()
