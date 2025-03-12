@@ -38,10 +38,3 @@ def create_user(usuario, senha):
     # Fechando o cursor e a conexão
     cursor.close()
     conn.close()
-
-# Exemplo de uso
-if __name__ == "__main__":
-    usuario = "admin"
-    senha = "1234"
-    create_user(usuario, senha)
-    print("Usuário criado com sucesso!")
