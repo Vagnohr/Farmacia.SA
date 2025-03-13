@@ -10,7 +10,7 @@ class Database:
         self.MYSQL_DATABASE = "farmacia_sa"
 
         # Inicializa o banco de dados e cria a tabela, se não existir
-        self.initialize_database()
+        self.mysql.connector()
 
     def get_connection(self):
         # Criar uma conexão com o banco de dados
