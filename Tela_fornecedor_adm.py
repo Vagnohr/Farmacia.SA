@@ -64,7 +64,7 @@ class CRUDApp:
         suppliers=read_suppliers()
         self.text_area.delete(1.0,tk.END)
         for supplier in suppliers:
-            self.text_area.insert(tk.END,f"id: {supplier[0]}, nome: {supplier[1]}, email: {supplier[2]}, produto: {supplier[23]}, quantia: {supplier[4]}, transporte: {supplier[5]}, cidade: {supplier[6]}, estado: {supplier[7]}\n")
+            self.text_area.insert(tk.END,f"id: {supplier[0]}, nome: {supplier[1]}, email: {supplier[2]}, produto: {supplier[3]}, quantia: {supplier[4]}, transporte: {supplier[5]}, cidade: {supplier[6]}, estado: {supplier[7]}\n")
     def update_supplier(self):
         idfornecedor=self.idfornecedor_entry.get()
         nome=self.nome_entry.get()
