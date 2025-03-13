@@ -92,9 +92,7 @@ CREATE TABLE `usuario` (
   `nome` text DEFAULT NULL,
   `email` text DEFAULT NULL,
   `senha` text DEFAULT NULL,
-  `CPF` text DEFAULT NULL,
-  `cidade` text DEFAULT NULL,
-  `estado` text DEFAULT NULL
+  `usuario` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
