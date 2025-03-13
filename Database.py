@@ -18,7 +18,7 @@ class Database:
         )
 db = Database()
 # Função para criar um usuário no banco de dados
-def create_user(usuario, senha):
+def login_user(usuario, senha):
     conn = db.get_connection()
     cursor = conn.cursor()
     query = "INSERT INTO usuario (usuario, senha) VALUES (%s, %s)"
@@ -26,3 +26,4 @@ def create_user(usuario, senha):
     conn.commit()
     cursor.close()
     conn.close()
+

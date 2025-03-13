@@ -60,4 +60,74 @@ def Login():
 LoginButton = ttk.Button(text="Login", width=15, command=Login)
 LoginButton.place(x=1, y=180)
 
+# Função para registrar novo usuário
+def registrar():
+    # Removendo botões de Login
+    LoginButton.place(x=5000)
+    RegisterButton.place(x=5000)
+
+    # Inserindo widgets de cadastro
+    NomeLabel = Label(RIGHT, text="Nome:", font=("Century Gothic", 20), bg="MIDNIGHTBLUE", fg="White")
+    NomeLabel.place(x=5, y=5)
+    NomeEntry = ttk.Entry(RIGHT, width=30)
+    NomeEntry.place(x=120, y=20)
+
+    EmailLabel = Label(RIGHT, text="Email:", font=("Century Gothic", 20), bg="MIDNIGHTBLUE", fg="White")
+    EmailLabel.place(x=5, y=50)
+    EmailEntry = ttk.Entry(RIGHT, width=30)
+    EmailEntry.place(x=120, y=70)
+
+    # Função para registrar no banco de dados
+    def RegistrarNoBanco():
+        nome = NomeEntry.get()
+        email = EmailEntry.get()
+        usuario = usuarioEntry.get()
+        senha = senhaEntry.get()
+
+        # Verifica se todos os campos estão preenchidos
+        if nome == "" or email == "" or usuario == "" or senha == "":
+            messagebox.showerror(title="Erro de Registro", message="Preencha todos os campos!")
+        else:
+            db = Database()
+            conn = db.get_connection()
+            cursor = conn.cursor()
+        # Consulta para verificar as credenciais
+            cursor.execute("""SELECT * FROM usuario WHERE usuario = %s AND senha = %s""", (usuario, senha))
+            VerifiyLogin = cursor.fetchone()
+        # Verificar se o usuário foi encontrado
+        if VerifiyLogin:
+            messagebox.showinfo(title="Info Login", message="Acesso Confirmado. Bem-vindo!")
+        else:
+            messagebox.showinfo(title="Info Login", message="Acesso Negado. Verifique se o cadastro está no sistema.")
+            # Limpar campos após o registro
+        NomeEntry.delete(0, END)
+        EmailEntry.delete(0, END)
+        usuarioEntry.delete(0, END)
+        senhaEntry.delete(0, END)
+    Register = ttk.Button(RIGHT, text="Registrar", width=15, command=RegistrarNoBanco)
+    Register.place(x=150, y=225)
+    # Função para voltar à tela de login
+    def VoltarLogin():
+        # Remover widgets de cadastro
+        NomeLabel.place(x=5000)
+        NomeEntry.place(x=5000)
+        EmailLabel.place(x=5000)
+        EmailEntry.place(x=5000)
+        Register.place(x=5000)
+        Voltar.place(x=5000)
+        # Trazer de volta os widgets de login
+        LoginButton.place(x=150)
+        RegisterButton.place(x=150)
+    Voltar = ttk.Button(RIGHT, text="Voltar", width=15, command=VoltarLogin)
+    Voltar.place(x=150, y=255)
+RegisterButton = ttk.Button(RIGHT, text="Registrar", width=15, command=registrar)
+RegisterButton.place(x=150, y=255)
+
+
+
+
+
+
+
+
 jan.mainloop()
