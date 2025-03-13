@@ -64,15 +64,15 @@ def registrar():
     RegisterButton.place_forget()
 
     # Inserir widgets de cadastro
-    NomeLabel = Label(jan, text="Nome:", font=("Century Gothic", 20), bg="MIDNIGHTBLUE", fg="White")
-    NomeLabel.place(x=5, y=5)
+    NomeLabel = Label(jan, text="Nome:", font=("Century Gothic", 10), bg="orange", fg="White")
+    NomeLabel.place(x=250, y=125)
     NomeEntry = ttk.Entry(jan, width=30)
-    NomeEntry.place(x=120, y=20)
+    NomeEntry.place(x=305, y=125)
 
-    EmailLabel = Label(jan, text="Email:", font=("Century Gothic", 20), bg="MIDNIGHTBLUE", fg="White")
-    EmailLabel.place(x=5, y=50)
+    EmailLabel = Label(jan, text="Email:", font=("Century Gothic", 10), bg="orange", fg="White")
+    EmailLabel.place(x=250, y=155)
     EmailEntry = ttk.Entry(jan, width=30)
-    EmailEntry.place(x=120, y=70)
+    EmailEntry.place(x=305, y=155)
 
     # Função para registrar no banco de dados
     def RegistrarNoBanco():
@@ -129,8 +129,8 @@ def registrar():
         Voltar.place_forget()
 
         # Trazer de volta os widgets de login
-        LoginButton.place(x=150)
-        RegisterButton.place(x=300)
+        LoginButton.place(x=150,y=180)
+        RegisterButton.place(x=300,y=180)
 
     Voltar = ttk.Button(jan, text="Voltar", width=15, command=VoltarLogin)
     Voltar.place(x=300, y=225)
