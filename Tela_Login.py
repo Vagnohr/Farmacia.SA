@@ -6,7 +6,7 @@ from tkinter import messagebox
 
 # Tela de login
 jan = Tk()
-jan.title("Login de Usuários:")
+jan.title("Login de Usuários")
 jan.geometry("600x300")
 jan.configure(background="purple")
 jan.resizable(width=False, height=False)
@@ -142,6 +142,4 @@ LoginButton.place(x=150, y=180)
 
 RegisterButton = ttk.Button(jan, text="Registrar", width=15, command=registrar)
 RegisterButton.place(x=300, y=180)
-
-
 jan.mainloop()
