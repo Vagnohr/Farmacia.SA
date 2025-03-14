@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from DataBase import Database  # Certifique-se de que este módulo está correto
+from DataBase_adm import Database  # Certifique-se de que este módulo está correto
 from tkinter import messagebox
 
 
