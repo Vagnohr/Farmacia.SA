@@ -6,7 +6,7 @@ from tkinter import messagebox
 
 # Tela de login
 jan = Tk()
-jan.title("Login de Usuários")
+jan.title("Login de Usuários:")
 jan.geometry("600x300")
 jan.configure(background="purple")
 jan.resizable(width=False, height=False)
