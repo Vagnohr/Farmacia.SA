@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from crud_stuff_produtos import add_product, read_products  # Funções do CRUD
+from crud_stuff_produtos import add_product, read_products  # Importa as funções do CRUD
 
 class ProductApp:
     def __init__(self, root):
@@ -14,14 +14,16 @@ class ProductApp:
         tk.Label(self.root, text="Fornecedor:").grid(row=1, column=0)
         tk.Label(self.root, text="Quantidade:").grid(row=2, column=0)
         tk.Label(self.root, text="Valor:").grid(row=3, column=0)
-        tk.Label(self.root, text="Validade:").grid(row=4, column=0)
-        tk.Label(self.root, text="ID:").grid(row=5, column=0)
+        tk.Label(self.root, text="Validade (AAAA-MM-DD):").grid(row=4, column=0)
+        tk.Label(self.root, text="Descrição:").grid(row=5, column=0)
+        tk.Label(self.root, text="ID:").grid(row=6, column=0)
 
         self.nome_entry = tk.Entry(self.root)
         self.fornecedor_entry = tk.Entry(self.root)
         self.quantidade_entry = tk.Entry(self.root)
         self.valor_entry = tk.Entry(self.root)
         self.validade_entry = tk.Entry(self.root)
+        self.descricao_entry = tk.Entry(self.root)
         self.id_entry = tk.Entry(self.root)
 
         self.nome_entry.grid(row=0, column=1)
@@ -29,15 +31,16 @@ class ProductApp:
         self.quantidade_entry.grid(row=2, column=1)
         self.valor_entry.grid(row=3, column=1)
         self.validade_entry.grid(row=4, column=1)
-        self.id_entry.grid(row=5, column=1)
+        self.descricao_entry.grid(row=5, column=1)
+        self.id_entry.grid(row=6, column=1)
 
         # Botões
-        tk.Button(self.root, text="Adicionar Produto", command=self.add_product).grid(row=6, column=0)
-        tk.Button(self.root, text="Listar Produtos", command=self.list_products).grid(row=6, column=1)
+        tk.Button(self.root, text="Adicionar Produto", command=self.add_product).grid(row=7, column=0)
+        tk.Button(self.root, text="Listar Produtos", command=self.list_products).grid(row=7, column=1)
 
         # Área de texto para exibir produtos
         self.text_area = tk.Text(self.root, height=15, width=50)
-        self.text_area.grid(row=7, column=0, columnspan=3)
+        self.text_area.grid(row=8, column=0, columnspan=3)
 
     def add_product(self):
         nome = self.nome_entry.get()
@@ -45,16 +48,18 @@ class ProductApp:
         quantidade = self.quantidade_entry.get()
         valor = self.valor_entry.get()
         validade = self.validade_entry.get()
+        descricao = self.descricao_entry.get()
 
-        if nome and fornecedor and quantidade and valor and validade:
+        if nome and fornecedor and quantidade and valor and validade and descricao:
             try:
                 # Chamada para o CRUD
-                add_product(nome, quantidade, valor, fornecedor, validade)  # Chamada ajustada
+                add_product(nome, quantidade, valor, fornecedor, descricao, validade)
                 self.nome_entry.delete(0, tk.END)
                 self.fornecedor_entry.delete(0, tk.END)
                 self.quantidade_entry.delete(0, tk.END)
                 self.valor_entry.delete(0, tk.END)
                 self.validade_entry.delete(0, tk.END)
+                self.descricao_entry.delete(0, tk.END)
                 messagebox.showinfo("Sucesso", "Produto adicionado com sucesso!")
             except Exception as e:
                 messagebox.showerror("Erro", f"Erro ao adicionar o produto: {e}")
