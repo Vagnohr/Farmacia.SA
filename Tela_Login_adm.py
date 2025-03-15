@@ -38,7 +38,7 @@ def Login():
         cursor = conn.cursor()
 
         # Consulta para verificar as credenciais
-        cursor.execute("SELECT * FROM usuario WHERE nome = %s AND senha = %s", (usuario, senha))
+        cursor.execute("SELECT * FROM adm WHERE nome = %s AND senha = %s", (usuario, senha))
         VerifiyLogin = cursor.fetchone()
 
         if VerifiyLogin:
@@ -90,13 +90,13 @@ def registrar():
                 cursor = conn.cursor()
 
                 # Verificar se o usuário já existe
-                cursor.execute("SELECT * FROM usuario WHERE nome = %s", (nome,))
+                cursor.execute("SELECT * FROM adm WHERE nome = %s", (nome,))
                 VerifiyLogin = cursor.fetchone()
                 if VerifiyLogin:
                     messagebox.showerror(title="Erro de Registro", message="ADM já cadastrado!")
                 else:
                     # Inserir novo usuário
-                    cursor.execute("INSERT INTO usuario (nome, email, CPF, senha) VALUES (%s, %s, %s, %s)",
+                    cursor.execute("INSERT INTO adm (nome, email, CPF, senha) VALUES (%s, %s, %s, %s)",
                                    (nome, email, CPF, senha))
                     conn.commit()
                     messagebox.showinfo(title="Registro", message="ADM registrado com sucesso!")

@@ -1,7 +1,7 @@
 import mysql.connector
 from mysql.connector import Error
 
-class Database_adm:
+class Database:
     def __init__(self):
         # Configurações do banco de dados
         self.MYSQL_HOST = "localhost"

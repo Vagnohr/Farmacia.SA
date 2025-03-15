@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dumpk,m
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
@@ -84,8 +84,7 @@ CREATE TABLE `produto` (
   `fornecedor` text DEFAULT NULL,
   `descricao` text DEFAULT NULL,
   `validade` text DEFAULT NULL,
-  `quantidade` text DEFAULT NULL,
-  `usuario` text DEFAULT NULL
+  `quantidade` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

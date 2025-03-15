@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from crud_stuff_produtos import add_product, read_products  # Funções do CRUD
+from crud_stuff_produtos import add_product, read_products # Funções do CRUD
 
 class ProductApp:
     def __init__(self, root):
@@ -15,7 +15,7 @@ class ProductApp:
         tk.Label(self.root, text="Quantidade:").grid(row=2, column=0)
         tk.Label(self.root, text="Valor:").grid(row=3, column=0)
         tk.Label(self.root, text="Validade:").grid(row=4, column=0)
-        tk.Label(self.root, text="ID:").grid(row=5, column=0)
+        tk.Label(self.root, text="ID :").grid(row=5, column=0)
 
         self.nome_entry = tk.Entry(self.root)
         self.fornecedor_entry = tk.Entry(self.root)
@@ -80,6 +80,13 @@ class ProductApp:
         except Exception as e:
             messagebox.showerror("Erro", f"Erro ao listar os produtos: {e}")
 
+        if product:
+            self.text_area.insert(
+            tk.END,
+            f"ID: {product[0]}\nNome: {product[1]}\nValor: {product[2]}\n"
+            f"Fornecedor: {product[3]}\nDescrição: {product[4]}\nValidade: {product[5]}\n"
+            f"Quantidade: {product[6]}\n{'-'*30}\n"
+            )
 if __name__ == "__main__":
     root = tk.Tk()
     app = ProductApp(root)
