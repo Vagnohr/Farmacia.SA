@@ -16,13 +16,13 @@ def get_connection():
     )
 
 # Adicionar fornecedor
-def add_supplier(nome, email, produto, transporte, cidade, estado):
+def add_supplier(nome, email, produto, inicio_contrato, final_contrato, transporte, cidade, estado):
     conn = get_connection()
     cursor = conn.cursor()
     try:
-        query = """INSERT INTO fornecedor (nome, email, produto, transporte, cidade, estado)
-                   VALUES (%s, %s, %s, %s, %s, %s)"""
-        cursor.execute(query, (nome, email, produto, transporte, cidade, estado))
+        query = """INSERT INTO fornecedor (nome, email, produto, inicio_contrato, final_contrato, transporte, cidade, estado)
+                   VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
+        cursor.execute(query, (nome, email, produto, inicio_contrato, final_contrato, transporte, cidade, estado))
         conn.commit()
         print("Fornecedor adicionado com sucesso!")
     except Exception as e:
@@ -47,13 +47,13 @@ def read_suppliers():
         conn.close()
 
 # Atualizar fornecedor
-def update_supplier(idfornecedor, nome, email, produto, transporte, cidade, estado):
+def update_supplier(idfornecedor, nome, email, produto, inicio_contrato, final_contrato, transporte, cidade, estado):
     conn = get_connection()
     cursor = conn.cursor()
     try:
         query = """UPDATE fornecedor SET nome = %s, email = %s, produto = %s, 
-                   transporte = %s, cidade = %s, estado = %s WHERE idfornecedor = %s"""
-        cursor.execute(query, (nome, email, produto, transporte, cidade, estado, idfornecedor))
+                   inicio_contrato = %s, final_contrato = %s, transporte = %s, cidade = %s, estado = %s WHERE idfornecedor = %s"""
+        cursor.execute(query, (nome, email, produto, inicio_contrato, final_contrato, transporte, cidade, estado, idfornecedor))
         conn.commit()
         print("Fornecedor atualizado com sucesso!")
     except Exception as e:
@@ -76,8 +76,6 @@ def delete_supplier(idfornecedor):
     finally:
         cursor.close()
         conn.close()
-
-# *** Funcionalidades adicionais (do meu CRUD) ***
 
 # Listar todos os fornecedores com menos detalhes
 def listar_todos_os_fornecedores():
@@ -104,7 +102,8 @@ def buscar_fornecedor_por_nome(nome):
         cursor.execute(query, (f"%{nome}%",))
         result = cursor.fetchall()
         for fornecedor in result:
-            print(f"ID: {fornecedor[0]}, Nome: {fornecedor[1]}, Email: {fornecedor[2]}, Produto: {fornecedor[3]}, Transporte: {fornecedor[4]}, Cidade: {fornecedor[5]}, Estado: {fornecedor[6]}")
+            print(f"ID: {fornecedor[0]}, Nome: {fornecedor[1]}, Email: {fornecedor[2]}, Produto: {fornecedor[3]}, Início do Contrato: {fornecedor[4]}, "
+                  f"Final do Contrato: {fornecedor[5]}, Transporte: {fornecedor[6]}, Cidade: {fornecedor[7]}, Estado: {fornecedor[8]}")
     except Exception as e:
         print(f"Erro ao buscar fornecedor por nome: {e}")
     finally:
