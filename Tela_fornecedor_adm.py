@@ -3,7 +3,7 @@ from tkinter import messagebox
 from crud_stuff_fornecedores import add_supplier, read_suppliers, update_supplier, delete_supplier
 
 class CRUDApp:
-    def _init_(self, root):
+    def __init__(self, root):
         self.root = root
         self.root.title("FORNECEDORES")
         self.create_widgets()
@@ -57,12 +57,12 @@ class CRUDApp:
         produto_fornecido = self.produto_fornecido_entry.get()
         inicio_contrato = self.inicio_contrato_entry.get()
         final_contrato = self.final_contrato_entry.get()
-        tipo_transporte = self.tipo_transporte_entry.get()
+        transporte = self.tipo_transporte_entry.get()
         cidade = self.cidade_entry.get()
         estado = self.estado_entry.get()
 
-        if nome and email and produto_fornecido and inicio_contrato and final_contrato and tipo_transporte and cidade and estado:
-            add_supplier(nome, email, produto_fornecido, inicio_contrato, final_contrato, tipo_transporte, cidade, estado)
+        if nome and email and produto_fornecido and inicio_contrato and final_contrato and transporte and cidade and estado:
+            add_supplier(nome, email, produto_fornecido, inicio_contrato, final_contrato, transporte, cidade, estado)
             self.clear_entries()
             messagebox.showinfo("Sucesso", "Fornecedor adicionado com sucesso")
         else:
@@ -72,8 +72,6 @@ class CRUDApp:
         suppliers = read_suppliers()
         self.text_area.delete(1.0, tk.END)
         for supplier in suppliers:
-            # Assumindo que a ordem das colunas no banco de dados é:
-            # id, nome, email, produto_fornecido, inicio_contrato, final_contrato, tipo_transporte, cidade, estado
             self.text_area.insert(tk.END, f"id: {supplier[0]}, nome: {supplier[1]}, email: {supplier[2]}, produto: {supplier[3]}, "
                                            f"início contrato: {supplier[4]}, final contrato: {supplier[5]}, transporte: {supplier[6]}, "
                                            f"cidade: {supplier[7]}, estado: {supplier[8]}\n")
@@ -85,12 +83,12 @@ class CRUDApp:
         produto_fornecido = self.produto_fornecido_entry.get()
         inicio_contrato = self.inicio_contrato_entry.get()
         final_contrato = self.final_contrato_entry.get()
-        tipo_transporte = self.tipo_transporte_entry.get()
+        transporte = self.tipo_transporte_entry.get()
         cidade = self.cidade_entry.get()
         estado = self.estado_entry.get()
 
-        if idfornecedor and nome and email and produto_fornecido and inicio_contrato and final_contrato and tipo_transporte and cidade and estado:
-            update_supplier(idfornecedor, nome, email, produto_fornecido, inicio_contrato, final_contrato, tipo_transporte, cidade, estado)
+        if idfornecedor and nome and email and produto_fornecido and inicio_contrato and final_contrato and transporte and cidade and estado:
+            update_supplier(idfornecedor, nome, email, produto_fornecido, inicio_contrato, final_contrato, transporte, cidade, estado)
             self.clear_entries()
             messagebox.showinfo("Sucesso", "Fornecedor alterado com sucesso")
         else:
@@ -117,7 +115,7 @@ class CRUDApp:
         self.estado_entry.delete(0, tk.END)
         self.idfornecedor_entry.delete(0, tk.END)
 
-if __name__== "_main_":
+if __name__ == "__main__":
     root = tk.Tk()
     app = CRUDApp(root)
     root.mainloop()
