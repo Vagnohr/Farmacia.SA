@@ -1,39 +1,72 @@
-import sqlite3
+import mysql.connector
 
-def create_table():
-    conn = sqlite3.connect("funcionario.db")
-    cursor = conn.cursor()
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS funcionario (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL,
-        email TEXT NOT NULL,
-        telefone TEXT,
-        cidade TEXT,
-        estado TEXT,
-        bairro TEXT
-    )
-    """)
-    conn.commit()
-    conn.close()
+class Database:
+    def __init__(self):
+        try:
+            self.connection = mysql.connector.connect(
+                host="localhost",
+                user="root",  # Substitua pelo seu usuário
+                password="",  # Substitua pela sua senha
+                database="farmacia_sa"
+            )
+            if self.connection.is_connected():
+                self.cursor = self.connection.cursor()
+        except mysql.connector.Error as e:
+            print(f"Erro ao conectar ao banco de dados: {e}")
+            self.connection = None
+            self.cursor = None
 
-def add_funcionario(nome, email, telefone, cidade, estado, bairro):
-    conn = sqlite3.connect("funcionario.db")
-    cursor = conn.cursor()
-    cursor.execute("""
-    INSERT INTO funcionario (nome, email, telefone, cidade, estado, bairro)
-    VALUES (?, ?, ?, ?, ?, ?)
-    """, (nome, email, telefone, cidade, estado, bairro))
-    conn.commit()
-    conn.close()
+    def inserir_funcionario(self, nome, email, telefone, cidade, estado, bairro, data_de_nascimento, data_de_contrato):
+        try:
+            query = """
+                INSERT INTO funcionario 
+                (nome, email, telefone, cidade, estado, bairro, data_de_nascimento, data_de_contrato)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            """
+            self.cursor.execute(query, (nome, email, telefone, cidade, estado, bairro, data_de_nascimento, data_de_contrato))
+            self.connection.commit()
+        except mysql.connector.Error as e:
+            print(f"Erro ao inserir funcionário: {e}")
 
-def read_funcionarios():
-    conn = sqlite3.connect("funcionario.db")
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM funcionario")
-    funcionarios = cursor.fetchall()
-    conn.close()
-    return funcionarios
+    def alterar_funcionario(self, idfuncionario, nome, email, telefone, cidade, estado, bairro, data_de_nascimento, data_de_contrato):
+        try:
+            query = """
+                UPDATE funcionario SET 
+                nome = %s, email = %s, telefone = %s, cidade = %s, estado = %s, bairro = %s, 
+                data_de_nascimento = %s, data_de_contrato = %s 
+                WHERE idfuncionario = %s
+            """
+            self.cursor.execute(query, (nome, email, telefone, cidade, estado, bairro, data_de_nascimento, data_de_contrato, idfuncionario))
+            self.connection.commit()
+        except mysql.connector.Error as e:
+            print(f"Erro ao alterar funcionário: {e}")
 
-# Criar a tabela ao carregar o módulo
-create_table()
+    def excluir_funcionario(self, idfuncionario):
+        try:
+            query = "DELETE FROM funcionario WHERE idfuncionario = %s"
+            self.cursor.execute(query, (idfuncionario,))
+            self.connection.commit()
+        except mysql.connector.Error as e:
+            print(f"Erro ao excluir funcionário: {e}")
+
+    def verificar_login(self, nome, email):
+        try:
+            query = """
+                SELECT * FROM funcionario 
+                WHERE nome = %s AND email = %s
+            """
+            self.cursor.execute(query, (nome, email))
+            resultado = self.cursor.fetchone()
+            if resultado:
+                return True  # Login válido
+            else:
+                return False  # Login inválido
+        except mysql.connector.Error as e:
+            print(f"Erro ao verificar login: {e}")
+            return None
+
+    def fechar_conexao(self):
+        if self.cursor:
+            self.cursor.close()
+        if self.connection:
+            self.connection.close()
