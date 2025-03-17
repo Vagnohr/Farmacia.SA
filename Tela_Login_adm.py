@@ -23,7 +23,7 @@ NomeEntry.place(x=60, y=125)
 senhaLabel = Label(jan, text="Senha: ", font=("Century Gothic", 10), bg="ORANGE", fg="White")
 senhaLabel.place(x=1, y=155)
 senhaEntry = ttk.Entry(jan, width=30, show="*")  # Oculte a senha com "*"
-senhaEntry.place(x=55, y=155)
+senhaEntry.place(x=60, y=155)
 
 
 # Função de login
