@@ -1,6 +1,4 @@
 import mysql.connector
-<<<<<<< HEAD
-
 # Configurações do banco de dados
 MYSQL_HOST = 'localhost'
 MYSQL_USER = 'root'
@@ -9,18 +7,15 @@ MYSQL_DATABASE = 'farmacia_sa'
 
 def get_connection():
     """Estabelece conexão com o banco de dados"""
-=======
 MYSQL_HOST='localhost'
 MYSQL_USER='root'
 MYSQL_PASSWORD=''
 MYSQL_DATABASE='farmacia_sa'
 def get_connection():
->>>>>>> 95ecda358b5c96f95ac8baec19c91f354c9626c6
     return mysql.connector.connect(
         host=MYSQL_HOST,
         user=MYSQL_USER,
         password=MYSQL_PASSWORD,
-<<<<<<< HEAD
         database=MYSQL_DATABASE
     )
 
@@ -118,8 +113,6 @@ def buscar_fornecedor_por_nome(nome):
     finally:
         cursor.close()
         conn.close()
-=======
-        database=MYSQL_DATABASE)
 def add_supplier(nome,produto_fornecido,quantia_mensal,usuario):
     conn=get_connection()
     cursor=conn.cursor()
@@ -153,4 +146,3 @@ def delete_supplier(supplier_id):
     conn.commit()
     cursor.close()
     conn.close()
->>>>>>> 95ecda358b5c96f95ac8baec19c91f354c9626c6

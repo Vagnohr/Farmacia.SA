@@ -1,23 +1,17 @@
 import mysql.connector
-<<<<<<< HEAD
-
 MYSQL_HOST = 'localhost'
 MYSQL_USER = 'root'
 MYSQL_PASSWORD = ''
 MYSQL_DATABASE = 'farmacia_sa'
-
-=======
 MYSQL_HOST='localhost'
 MYSQL_USER='root'
 MYSQL_PASSWORD=''
 MYSQL_DATABASE='farmacia_sa'
->>>>>>> 95ecda358b5c96f95ac8baec19c91f354c9626c6
 def get_connection():
     return mysql.connector.connect(
         host=MYSQL_HOST,
         user=MYSQL_USER,
         password=MYSQL_PASSWORD,
-<<<<<<< HEAD
         database=MYSQL_DATABASE
     )
 
@@ -59,8 +53,6 @@ def delete_product(product_id):
     conn.commit()
     cursor.close()
     conn.close()
-=======
-        database=MYSQL_DATABASE)
 def add_product(nome,estoque,valor,descricao,validade,usuario):
     conn=get_connection()
     cursor=conn.cursor()
@@ -94,4 +86,3 @@ def delete_product(product_id):
     conn.commit()
     cursor.close()
     conn.close()
->>>>>>> 95ecda358b5c96f95ac8baec19c91f354c9626c6
