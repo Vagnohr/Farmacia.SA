@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from DataBase import Database  # Certifique-se de que este módulo está correto
+from Database import Database  # Certifique-se de que este módulo está correto
 from tkinter import messagebox
 
 
@@ -15,7 +15,7 @@ Titulo = Label(jan, text="Login:", font=("Century Gothic", 25), bg="red", fg="Wh
 Titulo.place(x=1, y=50)
 
 # Adicionar campos de usuário e senha
-usuarioLabel = Label(jan, text="Usuário: ", font=("Century Gothic", 10), bg="ORANGE", fg="White")
+usuarioLabel = Label(jan, text="Usuário: ", font=("Century Gothic", 10), bg="ORANGE", fg="White",width=6)
 usuarioLabel.place(x=1, y=125)
 usuarioEntry = ttk.Entry(jan, width=30)
 usuarioEntry.place(x=60, y=125)
@@ -23,7 +23,7 @@ usuarioEntry.place(x=60, y=125)
 senhaLabel = Label(jan, text="Senha: ", font=("Century Gothic", 10), bg="ORANGE", fg="White")
 senhaLabel.place(x=1, y=155)
 senhaEntry = ttk.Entry(jan, width=30, show="*")  # Oculte a senha com "*"
-senhaEntry.place(x=55, y=155)
+senhaEntry.place(x=60, y=155)
 
 
 # Função de login
