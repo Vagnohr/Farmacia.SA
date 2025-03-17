@@ -14,7 +14,7 @@ class ProductApp:
         tk.Label(self.root, text="Fornecedor:").grid(row=1, column=0)
         tk.Label(self.root, text="Quantidade:").grid(row=2, column=0)
         tk.Label(self.root, text="Valor:").grid(row=3, column=0)
-        tk.Label(self.root, text="Validade (AAAA-MM-DD):").grid(row=4, column=0)
+        tk.Label(self.root, text="Validade (DD-MM-AAAA):").grid(row=4, column=0)
         tk.Label(self.root, text="Descrição:").grid(row=5, column=0)
         tk.Label(self.root, text="ID:").grid(row=6, column=0)
 
