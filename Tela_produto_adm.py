@@ -37,8 +37,8 @@ class ProductApp:
         # Botões
         tk.Button(self.root, text="Adicionar Produto", command=self.add_product).grid(row=7, column=0)
         tk.Button(self.root, text="Listar Produtos", command=self.list_products).grid(row=7, column=1)
-        tk.Button(self.root, text="Alterar Produto", command=self.update_product).grid(row=7, column=2)
-        tk.Button(self.root, text="Deletar Produto", command=self.delete_product).grid(row=8, column=0)
+        tk.Button(self.root, text="Alterar Produto", command=self.update_product).grid(row=8, column=0)
+        tk.Button(self.root, text="Deletar Produto", command=self.delete_product).grid(row=8, column=1)
 
         # Área de texto para exibir produtos
         self.text_area = tk.Text(self.root, height=15, width=50)
